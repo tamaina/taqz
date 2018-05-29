@@ -2,9 +2,9 @@
   "name": "taqz",
   "version": "1.0.0",
   "description": "Twitterに投稿したりなどしたいアプリです",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "node twitter/tweet_simple"
+    "help": "node twitter/tweet_simple"
   },
   "repository": {
     "type": "git",
