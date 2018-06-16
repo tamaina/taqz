@@ -42,8 +42,9 @@ inquirer.prompt(form)
             if(as2.yn == 'n') { console.log('操作を中止します'); return void(0) }
             request.post(`https://${as.domain}/api/auth/session/userkey`, { json: {'appSecret': taqz.instances[as.domain], 'token': generate.token} }, function (e, r, userkey) {
                 if(e) throw e
+                console.log(userkey)
                 const hashit = crypto.createHash('sha256')
-                hashit.update(`${userkey.access_token}${taqz.instances[as.domain]}`)
+                hashit.update(`${userkey.accessToken}${taqz.instances[as.domain]}`)
                 const i = hashit.digest('hex')
                 let rtaqz = require('./taqz.json')
                 let ii = rtaqz.accounts.findIndex((val, i, arr) =>{

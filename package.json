@@ -1,6 +1,6 @@
 {
   "name": "taqz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Twitterに投稿したりなどしたいアプリです",
   "main": "main.js",
   "scripts": {

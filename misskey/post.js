@@ -4,7 +4,7 @@ let taqz
 try{
     taqz = require('./taqz.json')
 } catch(e) {
-    throw Error('初期化されていません。 node misskey/init を実行し、初期化してください。')
+    throw Error('初期化されていません。 node misskey/instance を実行し、初期化してください。')
 }
 if(taqz.accounts.length == 0) throw Error('アカウントがありません。node misskey/account を実行し、アカウントを登録してください。')
 
@@ -19,8 +19,9 @@ function post(argv){
             let json = {i: account.i, text: text}
             if(tags != null) json.tags = tags
             arg.push(new Promise(function(resolve, reject){
-                request.post('https://misskey.xyz/api/posts/create', {json: json}, (err) => {
+                request.post('https://misskey.xyz/api/notes/create', {json: json}, (err, res, body) => {
                     if(err) reject(err)
+                    if(body.error) reject(body.error)
                     else{
                         console.log(`\n✔ [Misskey]  投稿しました。 @${account.name_domain}`)
                         console.log(text)

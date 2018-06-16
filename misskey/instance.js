@@ -21,7 +21,7 @@ inquirer.prompt(form)
     let form = [
         {
             type: 'input',
-            name: 'app_secret',
+            name: 'appSecret',
             message: 'App Secret:'
         }
     ]
@@ -29,13 +29,18 @@ inquirer.prompt(form)
     return inquirer.prompt(form)
 })
 .then(as => {
-    let data = {
-        instances: {},
-        accounts: []
-    }
-    data.instances[domain] = as.app_secret
-    return writeFile('misskey/taqz.json', JSON.stringify(data), 'utf8', () => {
+    let data = { instances: {}, accounts:[] }
+    try{
+        let taqz = require('./taqz.json')
+        let pdata = { instances: {} }
+        pdata.instances[domain] = as.appSecret
+        data = Object.assign(taqz, pdata)
+        console.log('taqz.jsonが更新されました。このファイルは絶対に誰にも見せないでください。')
+    } catch(e) {
+        data.instances[domain] = as.appSecret
         console.log('taqz.jsonが作成されました。このファイルは絶対に誰にも見せないでください。')
+    }
+    return writeFile('misskey/taqz.json', JSON.stringify(data), 'utf8', () => {
         console.log('node misskey/account を実行し、アカウントを追加してください。\n')
     })
 })

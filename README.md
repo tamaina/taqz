@@ -10,7 +10,7 @@ Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単な�
 
 ### Root
 
-- `node post`  
+- `node post (options)`  
   複数のサービスにわたって同時に投稿できます。
   * (options)
     * `-t <本文>`
@@ -22,11 +22,11 @@ Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単な�
   * `instance`  ･･････ インスタンスを登録します。いちばんはじめに実行してください。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。
-  * `post-simply (options)`  
+  * `(index) (options)`  
             ･･････ 単純に投稿できます。
     * (options)
       *  `--id=, --username=, -n <username>`  
-            ユーザーネーム(ID)を事前に設定できます。
+            ユーザーネーム(ID@インスタンスドメイン)を事前に設定できます。
             カンマ,区切りで複数アカウントを指定できます。
       *  `--file=, --path=, -f <filename>`  
             ファイル名を指定し、その内容を投稿できます。
@@ -44,7 +44,7 @@ Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単な�
   * `init`      ･･････ いちばんはじめに実行するコマンドです。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。
-  * `tweet-simply (options)`  
+  * `(index) (options)`  
             ･･････ 単純にツイートできます。
     * (options)
       *  `--id=, --screen_name=, -n <screen_name>`  
@@ -64,7 +64,7 @@ Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単な�
   * `instance`  ･･････ インスタンスを登録します。いちばんはじめに実行するコマンドです。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。
-  * `toot-simply (options)`  
+  * `(index) (options)`  
             ･･････ 単純にトゥートできます。
     * (options)
       *  `--id=, --screem_name=, -n <username>`  

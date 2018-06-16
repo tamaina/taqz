@@ -11,7 +11,7 @@ const taqz = (function(){
     try{
         return require('./taqz.json')
     } catch(e) {
-        throw Error('初期化されていません。 node misskey/init を実行し、初期化してください。')
+        throw Error('初期化されていません。 node misskey/instance を実行し、初期化してください。')
     }
 })()
 if(taqz.accounts.length == 0) throw Error('アカウントがありません。node misskey/account を実行し、アカウントを登録してください。')
@@ -34,8 +34,10 @@ require('../scripts/get_accounts')(argv, taqz, 'username')
 .then(async accounts => {
     for(n = 0; n < accounts.length; n++){
         const account = accounts[n]
+        console.log(account)
         request.post('https://misskey.xyz/api/notes/timeline', {json: {i: account.i}}, (err, res, body) => {
             if(err) throw err
+            else if (body.error) throw `Error: ${body.error}`
             else {
                 console.log(body)
                 body.reverse()
