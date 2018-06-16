@@ -34,7 +34,7 @@ require('../scripts/get_accounts')(argv, taqz, 'name_domain')
 .then(async accounts => {
     for(n = 0; n < accounts.length; n++){
         const account = accounts[n]
-        request.post('https://misskey.xyz/api/notes/timeline', {json: {i: account.i}}, (err, res, body) => {
+        request.post('https://misskey.xyz/api/notes/local-timeline', {json: {i: account.i}}, (err, res, body) => {
             if(err) throw err
             else if (body.error) throw `Error: ${body.error}`
             else {
@@ -67,7 +67,7 @@ require('../scripts/get_accounts')(argv, taqz, 'name_domain')
             })
 
         })
-        client.connect(`wss://misskey.xyz/?i=${account.i}`);
+        client.connect(`wss://misskey.xyz/local-timeline?i=${account.i}`);
     }
 })
 .catch(err => { throw err })
