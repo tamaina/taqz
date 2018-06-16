@@ -1,4 +1,10 @@
-const taqz = require('./taqz.json')
+const taqz = (function(){
+    try{
+        return require('./taqz.json')
+    } catch(e) {
+        throw Error('初期化されていません。 node twitter/init を実行し、初期化してください。')
+    }
+})()
 
 console.log(`利用可能なアカウント(${taqz.accounts.length}) :\n`)
 
