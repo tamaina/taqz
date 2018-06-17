@@ -1,10 +1,11 @@
 {
   "name": "taqz",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Twitterに投稿したりなどしたいアプリです",
   "main": "main.js",
   "scripts": {
-    "help": "node twitter/tweet_simple"
+    "test": "node main misskey instance",
+    "help": "node help"
   },
   "repository": {
     "type": "git",

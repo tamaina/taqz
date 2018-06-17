@@ -85,7 +85,7 @@ module.exports = () => {
         <commands>
         help, etc......
         `)
-    } else if (!(service == 'twitter' || service == 'misskey' || service == 'misskey-aoi' || service == 'mstdn' || service == 'mastodon')){
+    } else if (!(service == 'twitter' || service == 'misskey' || service == 'mstdn' || service == 'mastodon')){
         console.log('サービス名は正しく入力してください！')
         return false
     } else {
