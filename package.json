@@ -1,8 +1,11 @@
 {
   "name": "taqz",
-  "version": "3.0.0",
+  "version": "3.0.3",
   "description": "Twitter、Misskey、Mastodonになんとなく投稿したりタイムラインを取得できます。",
   "main": "main.js",
+  "bin": {
+    "taqz": "main"
+  },
   "scripts": {
     "test": "node main misskey instance",
     "help": "node help"

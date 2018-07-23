@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const service = process.argv[2]
 if (service == 'post'){
     const inquirer = require('inquirer')

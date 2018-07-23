@@ -22,7 +22,7 @@ async function get_username(argv, taqz, q){
                 return as[q]
             }, err => { throw err })
         } else {
-            console.log("It will post on " + taqz.accounts[0][q] + ". Run `taqz <Service> account to ")
+            console.log(taqz.accounts[0][q] + "で投稿します。`taqz <Service> account`でアカウントを追加できます。")
             return [taqz.accounts[0][q]]
         }
     }
