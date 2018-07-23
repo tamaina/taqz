@@ -1,5 +1,5 @@
 console.log(`
-node mstdn/<command>
+taqz mstdn <command>
   (index) (options)
           ･･････ 単純にトゥートできます。
   (options)

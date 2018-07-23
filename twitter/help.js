@@ -1,5 +1,5 @@
 console.log(`
-node twitter/<command>
+taqz twitter <command>
   (index) (options)
             ･･････ 単純にツイートできます。
     (options)

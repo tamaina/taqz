@@ -9,7 +9,7 @@ const taqz = (function(){
     try{
         return require('./taqz.json')
     } catch(e) {
-        throw Error('初期化されていません。 node mstdn/instance を実行し、初期化してください。')
+        throw Error('初期化されていません。 taqz mstdn instance を実行し、初期化してください。')
     }
 })()
 
@@ -27,7 +27,7 @@ console.log('インスタンスのドメインを入力します。')
 inquirer.prompt(form)
 .then(as => {
     domain = as.domain
-    if(!taqz.instances[as.domain]) throw Error('指定されたインスタンスはありませんでした。 node mstdn/instance を実行し、インスタンスを登録してください。')
+    if(!taqz.instances[as.domain]) throw Error('指定されたインスタンスはありませんでした。 taqz mstdn instance を実行し、インスタンスを登録してください。')
     return Mastodon.getAuthorizationUrl(taqz.instances[as.domain].app.client_id, taqz.instances[as.domain].app.client_secret, `https://${domain}` )
 })
 .then(url => {

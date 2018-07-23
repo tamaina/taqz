@@ -41,7 +41,7 @@ inquirer.prompt(form)
         console.log('taqz.jsonが作成されました。このファイルは絶対に誰にも見せないでください。')
     }
     return writeFile('misskey/taqz.json', JSON.stringify(data), 'utf8', () => {
-        console.log('node misskey/account を実行し、アカウントを追加してください。\n')
+        console.log('taqz misskey account を実行し、アカウントを追加してください。\n')
     })
 })
 .catch(err => { throw err })

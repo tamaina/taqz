@@ -11,10 +11,10 @@ const taqz = (function(){
     try{
         return require('./taqz.json')
     } catch(e) {
-        throw Error('初期化されていません。 node misskey/instance を実行し、初期化してください。')
+        throw Error('初期化されていません。 taqz misskey instance を実行し、初期化してください。')
     }
 })()
-if(taqz.accounts.length == 0) throw Error('アカウントがありません。node misskey/account を実行し、アカウントを登録してください。')
+if(taqz.accounts.length == 0) throw Error('アカウントがありません。taqz misskey account を実行し、アカウントを登録してください。')
 
 const argv = minimist(process.argv.slice(1))
 

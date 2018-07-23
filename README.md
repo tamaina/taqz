@@ -1,28 +1,24 @@
 # taqz
-
 Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単なクライアントです。
 
+## Install
+```
+npm i -g taqz
+```
+
 ## Usage
-
-ある程度新しい **node.js** をインストールします。
-
-リポジトリを[圧縮ファイルをダウンロード](//github.com/tamaina/taqz/releases)またはgitでクローンし、解凍又はクローンしたディレクトリに移動してください。
-
-PowerShellや端末などを開きます。  
-
-`npm install`したら、準備完了です。(アップデートまたはpullする都度に実行してください。)
-
-[下記のコマンド](#Commands)を入力し、指示に従って入力すれば操作できます。
+```
+taqz <Service> <Command>
+```
 
 ## Tips
-
-- ファイルからの投稿を除き、本文で"\n"を挿入すると改行になります。
+- ファイルからの投稿を除き、本文で"\n"を記入すると改行になります。
 
 ## Commands
 
 ### Root
 
-- `node post (options)`  
+- `taqz post (options)`  
   複数のサービスにわたって同時に投稿できます。
   * (options)
     * `-t <本文>`
@@ -30,7 +26,7 @@ PowerShellや端末などを開きます。
 
 ### Misskey
 
-- `node misskey/<command>`
+- `taqz misskey <command>`
   * `instance`  ･･････ インスタンスを登録します。いちばんはじめに実行してください。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。
@@ -52,7 +48,7 @@ PowerShellや端末などを開きます。
 
 **複数のアカウントで同時に呟くことはできません。**
 
-- `node twitter/<command>`
+- `taqz twitter <command>`
   * `init`      ･･････ いちばんはじめに実行するコマンドです。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。
@@ -71,7 +67,7 @@ PowerShellや端末などを開きます。
 
 ### Mastodon
 
-- `node mstdn/<command>`
+- `taqz mstdn <command>`
   * `instance`  ･･････ インスタンスを登録します。いちばんはじめに実行するコマンドです。
   * `account`   ･･････ 操作したいアカウントを追加するときに実行するコマンドです。
   * `list`      ･･････ 操作可能なアカウントIDを表示します。

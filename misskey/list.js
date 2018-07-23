@@ -2,7 +2,7 @@ const taqz = (function(){
     try{
         return require('./taqz.json')
     } catch(e) {
-        throw Error('初期化されていません。 node misskey/instance を実行し、初期化してください。')
+        throw Error('初期化されていません。 taqz misskey instance を実行し、初期化してください。')
     }
 })()
 
@@ -12,4 +12,4 @@ for(let i = 0; i < taqz.accounts.length; i++){
     console.log(`   ${taqz.accounts[i].name_domain}`)
 }
 
-console.log('\nnode misskey/account でアカウントを追加できます。')
+console.log('\ntaqz misskey account でアカウントを追加できます。')

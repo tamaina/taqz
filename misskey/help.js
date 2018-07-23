@@ -1,5 +1,5 @@
 console.log(`
-node misskey/<command>
+taqz misskey <command>
   (index) (options)
           ･･････ 単純に投稿できます。
   (options)
