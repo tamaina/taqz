@@ -6,20 +6,25 @@ async function get_username(argv, taqz, q){
     else if(argv.screen_name) return argv.screen_name.split(',')
     else if(argv.n) return argv.n.split(',')
     else {
-        const choices = taqz.accounts.map(account => account[q])
-        let form = [
-            {
-                type: 'checkbox',
-                name: q,
-                message: `アカウント :`,
-                choices: choices,
-                default: taqz.accounts[0][q]
-            }
-        ]
-        return inquirer.prompt(form)
-        .then(as => {
-            return as[q]
-        }, err => { throw err })
+        if (taqz.accounts.length > 1) {
+            const choices = taqz.accounts.map(account => account[q])
+            let form = [
+                {
+                    type: 'checkbox',
+                    name: q,
+                    message: `アカウント :`,
+                    choices: choices,
+                    default: taqz.accounts[0][q]
+                }
+            ]
+            return inquirer.prompt(form)
+            .then(as => {
+                return as[q]
+            }, err => { throw err })
+        } else {
+            console.log("It will post on " + taqz.accounts[0][q] + ". Run `taqz <Service> account to ")
+            return [taqz.accounts[0][q]]
+        }
     }
 }
 

@@ -13,7 +13,6 @@ if(taqz.accounts.length == 0) throw Error('アカウントがありません。n
 require('../scripts/get_accounts')(argv, taqz, 'name_domain')
 .then(async accounts => {
     const text = await require('../scripts/get_text')(argv, taqz)
-    const tags = await require('../scripts/get_tags')(argv, taqz)
     const coordinates = await getCoordinates()
     console.log(coordinates)
     const geo = {
@@ -28,11 +27,10 @@ require('../scripts/get_accounts')(argv, taqz, 'name_domain')
     for(n = 0; n < accounts.length; n++){
         const account = accounts[n]
         let json = {i: account.i, text: text, geo: geo}
-        if(tags != null) json.tags = tags
         arg.push(new Promise(function(resolve, reject){
             request.post('https://misskey.xyz/api/notes/create', {json: json}, (err, res, body) => {
-                if(err) reject("サーバーはエラーを返しました: " + err)
-                if(body.error) reject("サーバーはエラーを返しました: " + body.error)
+                if(err) reject("サーバーはエラーを返しました: " + err.toString())
+                if(body.error) reject("サーバーはエラーを返しました: " + body.error.toString())
                 else{
                     console.log(`\n✔ [Misskey]  投稿しました。 @${account.name_domain}`)
                     console.log(text)
@@ -48,6 +46,10 @@ require('../scripts/get_accounts')(argv, taqz, 'name_domain')
 async function getCoordinates(){
 
     const list = [
+        {
+            name: "闇プリン製造所",
+            value: [139.683643, 35.800629]
+        },
         {
             name: "東京ディズニーランド",
             value: [139.8794153, 35.633016]
