@@ -17,7 +17,7 @@ function post(argv){
             const account = accounts[n]
             let json = {i: account.i, text: text}
             arg.push(new Promise(function(resolve, reject){
-                request.post('https://misskey.xyz/api/notes/create', {json: json}, (err, res, body) => {
+                request.post(`https://${account.domain}/api/notes/create`, {json: json}, (err, res, body) => {
                     if(err) reject(err)
                     if(body.error) reject(body.error)
                     else{
