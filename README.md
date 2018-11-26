@@ -1,15 +1,32 @@
 # taqz
 Misskey、TwitterおよびMastodonの、コマンドラインで動く簡単なクライアントです。
 
-## Install
+## Install/Usage
+taqzの動作には**node.js**が必要です。node.jsの新しめのバージョンをインストールしてください。
+
+### In global
+`taqz`コマンドをインストールします。  
+(通常はこの方法でインストールした場合で解説します。)
+
+#### Install
 ```
 npm i -g taqz
 ```
 
-## Usage
+#### Usage
 ```
 taqz <Service> <Command>
 ```
+
+### Cloning/Downloading Files
+#### Installing
+GitHubリポジトリをZipでダウンロードするか、GitでCloneします。
+
+#### Usage
+````
+cd path-to-directory
+node <Service>/<Command>
+````
 
 ## Tips
 - ファイルからの投稿を除き、本文で"\n"を記入すると改行になります。
@@ -42,7 +59,6 @@ taqz <Service> <Command>
             本文を直接指定します。
   * `account-onetime`   ･･････ 他のアプリで使用するために、必要な手順を踏まえて「i」を出力します。
   * `help`      ･･････ この内容を表示します。
-
 
 ### Twitter
 
