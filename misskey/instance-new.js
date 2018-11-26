@@ -2,8 +2,9 @@ const          util = require('util')
 const     promisify = util.promisify
 const            fs = require('fs')
 const      inquirer = require('inquirer')
+const       request = require('request')
+const          post = promisify(request.post)
 const     writeFile = promisify(fs.writeFile)
-const      Mastodon = require('mastodon-api')
 
 let domain
 
@@ -12,7 +13,7 @@ let form = [
         type: 'input',
         name: 'domain',
         message: 'Instance Domain:',
-        default: 'mstdn.jp'
+        default: 'misskey.xyz'
     },
     {
         type: 'input',
@@ -25,19 +26,23 @@ console.log('\nインスタンスのドメインと、アプリ名を入力し�
 inquirer.prompt(form)
 .then(as => {
     domain = as.domain
-    return Mastodon.createOAuthApp(`https://${as.domain}/api/v1/apps`, as.name, 'read write follow')
+    return post('', {json:{ as. }})
 })
-.then(body => {
-    let taqz = { instances: {}, accounts:[] }
+.then(res => {
+    const body = res.body
+    console.log('body')
+    let data = { instances: {}, accounts:[] }
     try{
-        taqz = require('./taqz.json')
-        taqz.instances[domain] = { app: body }
+        let taqz = require('./taqz.json')
+        let pdata = { instances: {} }
+        pdata.instances[domain] = { app: body }
+        data = Object.assign(taqz, pdata)
         console.log('taqz.jsonが更新されました。このファイルは絶対に誰にも見せないでください。')
     } catch(e) {
-        taqz.instances[domain] = { app: body }
+        data.instances[domain] = { app: body }
         console.log('taqz.jsonが作成されました。このファイルは絶対に誰にも見せないでください。')
     }
-    return writeFile('mstdn/taqz.json', JSON.stringify(taqz), 'utf8', () => {
+    return writeFile('mstdn/taqz.json', JSON.stringify(data), 'utf8', () => {
         console.log('taqz mstdn account を実行し、アカウントを追加してください。\n')
     })
 })

@@ -66,5 +66,4 @@ inquirer.prompt(form)
         })
         .catch(err => { throw err })
     })
-
 })

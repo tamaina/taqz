@@ -29,18 +29,15 @@ inquirer.prompt(form)
     return inquirer.prompt(form)
 })
 .then(as => {
-    let data = { instances: {}, accounts:[] }
+    let taqz = { instances: {}, accounts:[] }
     try{
-        let taqz = require('./taqz.json')
-        let pdata = { instances: {} }
-        pdata.instances[domain] = as.appSecret
-        data = Object.assign(taqz, pdata)
-        console.log('taqz.jsonが更新されました。このファイルは絶対に誰にも見せないでください。')
+        taqz = require('./taqz.json')
+        taqz.instances[domain] = as.appSecret
     } catch(e) {
-        data.instances[domain] = as.appSecret
-        console.log('taqz.jsonが作成されました。このファイルは絶対に誰にも見せないでください。')
+        taqz.instances[domain] = as.appSecret
     }
-    return writeFile('misskey/taqz.json', JSON.stringify(data), 'utf8', () => {
+    console.log('taqz.jsonが更新されました。このファイルは絶対に誰にも見せないでください。')
+    return writeFile('misskey/taqz.json', JSON.stringify(taqz), 'utf8', () => {
         console.log('taqz misskey account を実行し、アカウントを追加してください。\n')
     })
 })
