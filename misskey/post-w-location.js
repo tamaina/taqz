@@ -44,7 +44,6 @@ require('../scripts/get_accounts')(argv, taqz, 'name_domain')
 .catch(err => { throw err })
 
 async function getCoordinates(){
-
     const list = [
         {
             name: "闇プリン製造所",
